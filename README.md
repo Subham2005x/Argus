@@ -42,9 +42,3 @@ Traditional attendance systems are time-consuming and error-prone. This project 
 ## Contribution
 Feel free to contribute by forking the repository and submitting a pull request.
 
-## License
-This project is licensed under the MIT License.
-
-## Contact
-For any queries, contact [your email or GitHub profile].
-
