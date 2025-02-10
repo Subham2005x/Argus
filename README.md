@@ -31,7 +31,7 @@ Traditional attendance systems are time-consuming and error-prone. This project 
    ```
 3. Run the application:
    ```sh
-   python main.py
+   python app.py
    ```
 
 ## Usage
