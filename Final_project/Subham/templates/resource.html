@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Plans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_index.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo_01.png') }}" >
+            <span>Argus</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('home') }}">Team</a>
+            <a href=" ">Resources</a>
+            <a href="{{ url_for('future') }}">Future Plans</a>
+            <a href="{{ url_for('login') }}" class="btn login-btn">Login</a>
+        </div>
+    </nav>
+
+    <!-- FUTURE PLANS SECTION -->
+    <div class="resources">
+        <h1>Resources</h1>
+
+        <h2>1. ESP32-CAM (Hardware & Camera Setup)</h2>
+        <ul>
+            <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32-cam.html" target="_blank">ESP32-CAM Official Docs</a></li>
+            <li><a href="https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition/" target="_blank">ESP32-CAM with OpenCV Tutorial</a></li>
+        </ul>
+
+        <h2>2. OpenCV (Face Detection & Image Processing)</h2>
+        <ul>
+            <li><a href="https://docs.opencv.org/master/" target="_blank">OpenCV Official Documentation</a></li>
+            <li><a href="https://www.youtube.com/watch?v=oXlwWbU8l2o" target="_blank">OpenCV Crash Course - FreeCodeCamp</a></li>
+            <li><a href="https://github.com/opencv/opencv" target="_blank">OpenCV GitHub Repository</a></li>
+        </ul>
+
+        <h2>3. dlib (Facial Recognition & Machine Learning)</h2>
+        <ul>
+            <li><a href="http://dlib.net/python/index.html" target="_blank">dlib Official Documentation</a></li>
+            <li><a href="https://www.youtube.com/watch?v=sz25xxF_AVE" target="_blank">Face Recognition using dlib - Tutorial</a></li>
+        </ul>
+
+        <h2>4. FaceNet & Deep Learning-Based Face Recognition</h2>
+        <ul>
+            <li><a href="https://github.com/davidsandberg/facenet" target="_blank">FaceNet GitHub (Deep Learning-Based Face Recognition)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=Fxh4SNyNnYc" target="_blank">Deep Learning Face Recognition - FreeCodeCamp</a></li>
+        </ul>
+
+        <h2>5. MediaPipe (Google's AI-Based Face Detection)</h2>
+        <ul>
+            <li><a href="https://developers.google.com/mediapipe/solutions/vision/facedetection" target="_blank">MediaPipe Face Detection Docs</a></li>
+            <li><a href="https://www.youtube.com/watch?v=01sAkU_NvOY" target="_blank">Face Detection using MediaPipe - YouTube</a></li>
+        </ul>
+
+        <h2>6. Flask (Backend for Communication with ESP32-CAM)</h2>
+        <ul>
+            <li><a href="https://flask.palletsprojects.com/en/latest/" target="_blank">Flask Official Documentation</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dam0GPOAvVI" target="_blank">Flask Web Development - FreeCodeCamp</a></li>
+        </ul>
+
+        <h2>7. SQLite (Database for Attendance Storage)</h2>
+        <ul>
+            <li><a href="https://sqlite.org/docs.html" target="_blank">SQLite Official Documentation</a></li>
+            <li><a href="https://www.youtube.com/watch?v=byHcYRpMgI4" target="_blank">SQL & SQLite for Beginners - FreeCodeCamp</a></li>
+        </ul>
+
+        <h2>8. Face Recognition Library (Alternative to dlib & OpenCV)</h2>
+        <ul>
+            <li><a href="https://github.com/ageitgey/face_recognition" target="_blank">Face Recognition Library (Easy Python Wrapper)</a></li>
+            <li><a href="https://pypi.org/project/face-recognition/" target="_blank">Face Recognition PyPI Package</a></li>
+        </ul>
+
+    </div>
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: antariktarafder06@gmail.com </p>
+                <p>Email: nabiksubham2005@gmail.com </p>
+            </div>
+            <div class="footer-section">
+                <h3>Address</h3>
+                <p>Techno Main Saltlake, Phase II Building, EM-4/1, Sector-V, Salt Lake, Kolkata-700091, WB</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="https://www.instagram.com/quantum_guitarist/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/subhamnabik/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Subham2005x"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Argus. All Rights Reserved.</p>
+            <p>Crafted with ❤️ by Subham Nabik</p>
+        </div>
+    </footer>
+
+</body>
+</html>

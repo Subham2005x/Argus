@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_dashboard.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo_01.png') }}" alt="Argus Logo">
+            <span>Argus</span>
+        </div>
+        <div class="nav-items">
+            <div class="dark-mode-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-icon" id="toggleIcon">🌙</span>
+            </div>
+            <div class="account-menu">
+                <button class="account-btn" onclick="toggleAccountMenu()">
+                    My Account <i class="fas fa-user"></i>
+                </button>
+                <div class="account-dropdown" id="accountDropdown">
+                    <div class="profile-pic">
+                        <img src="{{ url_for('static', filename='profile.png') }}" alt="Profile">
+                    </div>
+                    <p><strong>Name:</strong> {{ current_user.name }}</p>
+                    <p><strong>Teacher Id:</strong> {{ current_user.teacher_id }}</p>
+                    <hr>
+                    <form action="{{ url_for('logout') }}" method="POST">
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="{{ url_for('static', filename='script_dashboard.js') }}"></script>
+</body>
+</html>

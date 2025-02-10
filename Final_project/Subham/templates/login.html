@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Faculty Login</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="teacher_id" placeholder="Teacher ID" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class="fas fa-eye" id="togglePassword" style="cursor: pointer;"></i> <!-- Eye Icon -->
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>New user? <a href="{{ url_for('register') }}">Register</a></p>
+    </div>
+
+    <script>
+        // Show/Hide password functionality
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type of password input
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            
+            // Toggle the icon between eye and eye-slash
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Gradient Background */
+body {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent for glassmorphism */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 70px;
+    /* border-radius: 10px; */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Adjust the height as needed */
+    margin-right: 10px;
+    border-radius: 40%; /* Space between logo and text */
+}
+
+.logo span {
+    font-size: 40px;
+    font-weight: bold ;
+}
+
+/* Navbar Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 17 px;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff5e57;
+}
+
+/* Future Plans Section */
+.future-plans {
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    backdrop-filter: blur(10px); /* Slight blur effect */
+    text-align: left;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    margin: 100px auto; /* Centering */
+    width: 90%;
+    max-width: 1300px;
+    color: white;
+}
+
+.future-plans h2 {
+    font-size: 80px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.future-plans h4 {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+.future-plans h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.future-plans p {
+    font-size: 18px;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.future-plans strong {
+    font-weight: 600;
+}
+
+/* Comparison Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.comparison-table th {
+    background-color: #4d2cf0;
+    color: white;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comparison-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Resources Section */
+.resources {
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    backdrop-filter: blur(10px); /* Slight blur effect */
+    text-align: left;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    margin: 100px auto; /* Centering */
+    width: 90%;
+    max-width: 1300px;
+    color: white;
+}
+
+.resources h1 {
+    font-size: 80px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.resources h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.resources h3 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.resources ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resources li {
+    font-size: 18px;
+    margin: 15px 0; /* Increased margin for more space between links */
+}
+
+.resources a {
+    color: #ffbe57;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.resources a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffbe57;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.resources a:hover {
+    color: #fff;
+}
+
+.resources a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Team Button */
+.Team {
+    color: white;
+    text-decoration: none;
+    font-size: 17 px;
+    padding: 8px 12px;
+    transition: 0.1s;
+}
+
+.Team i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.Team:hover {
+    color: #ff5e57;
+    /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); Soft shadow on hover */
+}
+
+.Team:hover i {
+    transform: translateY(5px);
+}
+
+
+/* Login Button */
+.login-btn {
+    background: #ff5e57;
+    padding: 8px 14px;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.login-btn:hover {
+    background: #ff3b3b;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 30px;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    backdrop-filter: blur(15px); /* Stronger blur for glassmorphism */
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    height: 100vh;
+    color: white;
+}
+
+
+
+/* Right-Side Animation */
+.hero-right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-left {
+    max-width: 45%; /* Ensures text does not exceed half of the screen */
+}
+
+/* Tagline */
+.tagline {
+    font-size: 3rem; /* Bigger and bolder */
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+/* Intro Text with Smooth Fade */
+.intro {
+    font-size: 1.4rem; 
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* Fades in when visible */
+.intro.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fades out when scrolling past it */
+.intro.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Learn More Button */
+.learn-more {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #ff5e57, #ffbe57);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.learn-more i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.learn-more:hover {
+    background: linear-gradient(45deg, #ff3b3b, #ff9b3b);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+.learn-more:hover i {
+    transform: translateY(5px);
+}
+
+
+
+.animated-box {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff5e57, #ffbe57);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* About Section */
+/* Centering the About Section */
+.about {
+    width: 80%;
+    max-width: 1300px;
+    margin: 100px auto; /* Centering */
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism Effect */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Move downward initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When the section comes into view */
+.about.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move back to normal position */
+}
+
+.about h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+/* Rounded Inputs */
+input, textarea, button {
+    border-radius: 50px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.2); /* Light glassmorphism effect */
+    backdrop-filter: blur(8px); /* Slight blur effect */
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus, button:focus {
+    outline: none;
+    border: 1px solid #ff5e57; /* Focus color */
+    box-shadow: 0 0 10px rgba(255, 94, 87, 0.5); /* Glow effect on focus */
+}
+
+input:hover, textarea:hover, button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+/* ========== TEAM SECTION ========== */
+.team {
+    text-align: center;
+    margin: 80px 0;
+}
+
+.team h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.team-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap;
+    padding: 20px;
+    align-items: center;
+}
+
+.team-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.team-member {
+    display: inline-block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+.team-member img {
+    width: 235px;
+    height: 235px;
+    border-radius: 50%;
+    object-fit: cover ;
+}
+
+.team-member p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 14px;
+}
+
+.footer-section a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ffbe57;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* ========== SOCIAL MEDIA BUTTONS ========== */
+.footer-section a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 30%;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent glass effect */
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.footer-section a:hover {
+    transform: scale(1.1);
+}
+
+/* Instagram Button */
+.footer-section a[href*="instagram"] {
+    background-image: url("../static/Instagram_logo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* LinkedIn Button */
+.footer-section a[href*="linkedin"] {
+    background-image: url("../static/linkedin_logo.png");
+    background-size: cover;
+    background-position: center;
+}
+/* GitHub Button */
+.footer-section a[href*="github"] {
+    background-image: url("../static/github_logo.png");
+    background-size: cover;
+    background-position: center;
+}
