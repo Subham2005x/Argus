@@ -23,12 +23,12 @@ body.light-mode {
     backdrop-filter: blur(12px);
     border-radius: 12px;
     position: fixed;
-    width: 90%;
-    top: 15px;
+    width: 98%;
+    /* top: 15px; */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    height: 60px;
+    height: 40px;
     box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.2);
 }
 
@@ -136,9 +136,10 @@ input:checked + .slider:before {
 .account-dropdown {
     display: none;
     position: absolute;
+
     right: 0;
-    top: 45px;
-    background: black ;
+    top: 70px;
+    background:linear-gradient(135deg, #6a11cb, #2575fc) ;
     backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: white;
@@ -162,6 +163,7 @@ input:checked + .slider:before {
     height: 60px;
     border-radius: 50%;
     border: 2px solid white;
+    background: white;
     object-fit: cover;
 }
 
@@ -192,7 +194,7 @@ input:checked + .slider:before {
 
 /* Dark Mode */
 body.dark-mode {
-    background: #121212;
+    background: rgb(7, 7, 7);
     color: white;
 }
 

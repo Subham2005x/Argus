@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const darkModeToggle = document.getElementById("darkModeToggle");
     const body = document.body;
-    const accountBtn = document.getElementById("accountBtn");
     const accountDropdown = document.getElementById("accountDropdown");
 
     // Dark Mode Toggle

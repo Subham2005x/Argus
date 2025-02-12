@@ -35,14 +35,29 @@ def register():
         password = request.form['password']
         confirm_password = request.form['confirm_password']
 
+        # Check if teacher_id already exists
+        existing_teacher = Teacher.query.filter_by(teacher_id=teacher_id).first()
+        if existing_teacher:
+            flash('Teacher ID already exists! Please login instead.', 'warning')
+            return redirect(url_for('login'))
+
         if password != confirm_password:
-            flash('Both Passwords do not match!', 'danger')
+            flash('Passwords do not match!', 'danger')
             return redirect(url_for('register'))
 
-        # Add your logic to save the user to the database here
-
-        flash('Registration successful!', 'success')
-        return redirect(url_for('login'))
+        # Hash the password and create new teacher
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        new_teacher = Teacher(teacher_id=teacher_id, name=name, password=hashed_password)
+        
+        try:
+            db.session.add(new_teacher)
+            db.session.commit()
+            flash('Registration successful! Please login.', 'success')
+            return redirect(url_for('login'))
+        except Exception as e:
+            db.session.rollback()
+            flash('An error occurred during registration. Please try again.', 'danger')
+            return redirect(url_for('register'))
 
     return render_template('register.html')
 
@@ -67,9 +82,7 @@ def dashboard():
     return render_template('dashboard.html', name=current_user.name)
 
 @app.route('/logout')
-@login_required
 def logout():
-    logout_user()
     flash('Logged out successfully!', 'info')
     return redirect(url_for('login'))
 

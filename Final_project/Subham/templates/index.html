@@ -42,10 +42,34 @@
         </section>    
     </section>
 
-    <!-- FULL ABOUT SECTION -->
-    <section class="about" id="about">
+       <!-- FULL ABOUT SECTION -->
+       <section class="about" id="about">
         <h2>About Our Project</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta, doloremque praesentium mollitia laboriosam deleniti beatae enim accusamus sint suscipit deserunt rem quo? Ullam qui aliquam aperiam impedit deserunt saepe dolores veritatis repellat incidunt inventore explicabo, neque consequatur in perferendis odit quisquam necessitatibus, laborum provident nemo possimus ab. Libero odio, error recusandae, nostrum reiciendis ea sint in dolorum cum a labore quos ratione deleniti, doloremque optio aliquid alias porro beatae nesciunt fugiat minus quas adipisci accusantium. Deleniti incidunt quas beatae quasi necessitatibus inventore hic iure quisquam corporis dolore? Et culpa ipsam vel minus pariatur atque explicabo nisi amet dicta ipsa? Atque et provident, corrupti earum, alias animi adipisci tenetur, ex deserunt nobis minima repellat dolores omnis mollitia tempora in repellendus beatae. Quidem eaque expedita voluptates harum consequuntur architecto sapiente exercitationem, neque quod rem, animi porro molestias nam iusto qui voluptatem! Tenetur earum sunt accusamus minus blanditiis sequi eius ducimus doloremque quibusdam repellendus deleniti nam mollitia facere laboriosam aliquam sint aspernatur pariatur maxime officia, dolor molestiae. Molestiae sed, et doloribus non sit quod. Temporibus magni cupiditate inventore reiciendis nihil? Ad, qui. Quo eaque delectus ipsa consequatur nulla autem ab ratione ullam facere repellendus, voluptate reprehenderit atque quisquam repellat. Ex dolorum velit neque veritatis reiciendis reprehenderit soluta accusantium qui in impedit dolor molestias corporis rerum, rem quis est ad id at quo autem laboriosam voluptatibus totam. Cupiditate dolorem quam alias laboriosam rem error laborum, nobis voluptatem veritatis! Autem, inventore sapiente unde cumque illo minus aliquid, fuga repellat eligendi minima dolorem. Facere, a nisi.</p>
+        <p>In today's fast-paced world, traditional attendance systems are outdated, time-consuming, and prone to errors. Our <strong>Automatic Attendance System using Facial Recognition</strong> offers a <strong>contactless, efficient, and secure</strong> solution for educational institutions, workplaces, and events.</p>
+        
+        <p>This system utilizes <strong>ESP32-CAM</strong> to capture real-time images, which are then processed using <strong>advanced machine learning and computer vision techniques</strong> like <strong>OpenCV and dlib</strong>. The system ensures <strong>accurate face recognition</strong>, automatically marking attendance in a <strong>secure SQL database</strong>, eliminating the need for manual input.</p>
+
+        <h3>Key Features</h3>
+        <ol>
+            <li><strong>Contactless & Secure</strong> – Eliminates manual attendance, reducing errors and proxy attendance.</li>
+            <li><strong>Fast & Real-Time Processing</strong> – Uses machine learning for instant face recognition.</li>
+            <li><strong>Low-Cost & Open-Source</strong> – No expensive commercial software or cloud fees required.</li>
+            <li><strong>Local Data Storage & Privacy</strong> – Attendance data is stored securely in <strong>SQLite/MySQL</strong>, ensuring privacy.</li>
+            <li><strong>Customizable & Scalable</strong> – Can be modified for <strong>schools, offices, and industries</strong>.</li>
+        </ol>
+
+        <h3>How It Works</h3>
+        <ol>
+            <li><strong>Image Capture:</strong> When a person enters, the <strong>ESP32-CAM module</strong> captures an image of their face and sends it to a <strong>Flask-based local server</strong> for processing.</li>
+            <li><strong>Face Detection & Preprocessing:</strong> The system detects faces in the captured image using <strong>OpenCV</strong> and <strong>MediaPipe</strong>. The face is then aligned, cropped, and converted into a numerical format for better recognition accuracy.</li>
+            <li><strong>Face Recognition & Authentication:</strong> The processed face is compared against stored face embeddings in the database using <strong>dlib's deep learning model and OpenCV </strong>. If a match is found, the person's identity is confirmed.</li>
+            <li><strong>Attendance Marking:</strong> Once authenticated, the system automatically logs the attendance into an <strong>SQLite database</strong>, ensuring <strong>accurate record-keeping</strong>.</li>
+            <li><strong>Dashboard & Analytics:</strong> A web-based <strong>dashboard</strong> allows administrators to view attendance records, generate reports, and monitor statistics in real-time with proper login system. </li>
+        </ol>
+
+        <p>Unlike expensive commercial models, our system is <strong>affordable, open-source, and privacy-focused</strong>, making it ideal for institutions looking for a <strong>cost-effective yet powerful</strong> solution.</p>
+        
+        <p class="quote"><em>Why waste time calling names when your face can do the talking? Let <strong>Argus</strong> handle your attendance effortlessly! </em></p>
     </section>
 
     <!-- TEAM MEMBERS SECTION -->

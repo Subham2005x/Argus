@@ -92,6 +92,7 @@ body {
 .future-plans h4 {
     font-size: 35px;
     font-weight: 600;
+
     margin-bottom: 20px;
     text-align: center;
     text-decoration: underline;
@@ -99,13 +100,15 @@ body {
 .future-plans h3 {
     font-size: 28px;
     font-weight: 600;
+    padding-left: 2rem;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 .future-plans p {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 20px 0;
+    padding-left: 2rem;
     line-height: 1.6;
 }
 
@@ -345,18 +348,17 @@ body {
 
 
 
-.animated-box {
+/* .animated-box {
     width: 120px;
     height: 120px;
     border-radius: 20px;
     background: linear-gradient(135deg, #ff5e57, #ffbe57);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-}
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow }*/
 
 /* About Section */
 /* Centering the About Section */
 .about {
-    width: 80%;
+    width: 90%;
     max-width: 1300px;
     margin: 100px auto; /* Centering */
     padding: 60px 20px;
@@ -377,14 +379,38 @@ body {
 }
 
 .about h2 {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+.about h3 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 .about p {
     font-size: 18px;
-    line-height: 1.8;
+    margin: 10px 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.about ol {
+    list-style-type: decimal;
+    padding-left: 3em;
+    text-align: left;
+}
+
+.about ol li {
+    font-size: 18px;
+    margin-bottom: 0.5em;
 }
 
 
@@ -417,7 +443,7 @@ input:hover, textarea:hover, button:hover {
 }
 
 .team h2 {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 20px;
 }
 

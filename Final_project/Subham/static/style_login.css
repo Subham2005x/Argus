@@ -151,12 +151,68 @@ a:hover {
 /* Flash Messages */
 .success {
     color: #4caf50;
-    opacity: 50px; 
+    font-weight: 600;
     margin-bottom: 2rem;
 }
 
 .error {
     color: #f44336;
-    opacity: 50px;
+    font-weight: 600;
     margin-bottom: 2rem;
+}
+
+
+.alert-container {
+    width: 100%;
+    margin-bottom: 30px;  
+    padding: 10px;
+    border-radius: 25px;
+    
+    
+}
+
+.alert {
+    padding: 15px; 
+    color: #f44336;
+    font-weight: 600 ;      /* Increased from 10px to 15px */
+    margin-bottom: 20px;  /* Increased from 10px to 20px */
+    border-radius: 25px;   /* Increased from 4px to 8px */
+    text-align: center;
+    font-size: 25px;     /* Added font size */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Added subtle shadow */
+}
+
+.success {
+    background-color:  rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #155724;
+}
+
+.danger {
+    background-color:  rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #721c24;
+}
+.warning {
+    background-color:  rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #856404;
+}
+
+/* Update the form spacing */
+form {
+    margin-top: 30px;    /* Added margin top to the form */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;           /* Added gap between form elements */
+}
+
+input {
+    margin-bottom: 15px; /* Added margin bottom to inputs */
 }
