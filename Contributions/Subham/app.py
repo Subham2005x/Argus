@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -81,8 +81,10 @@ def login():
 def dashboard():
     return render_template('dashboard.html', name=current_user.name)
 
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
+@login_required
 def logout():
+    logout_user()  # Add this line to properly log out the user
     flash('Logged out successfully!', 'info')
     return redirect(url_for('login'))
 
@@ -93,6 +95,80 @@ def future():
 @app.route('/resource')
 def resource():
     return render_template('resource.html')
+
+
+# CRUD operations for classes
+class Class(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    student_count = db.Column(db.Integer, nullable=False)
+    teacher_id = db.Column(db.String(10), db.ForeignKey('teacher.teacher_id'), nullable=False)
+
+@app.route('/api/classes', methods=['GET'])
+@login_required
+def get_classes():
+    classes = Class.query.filter_by(teacher_id=current_user.teacher_id).all()
+    class_list = [{
+        "id": cls.id, 
+        "name": cls.name,
+        "studentCount": cls.student_count
+    } for cls in classes]
+    return jsonify(class_list)
+
+@app.route('/api/classes', methods=['POST'])
+@login_required
+def add_class():
+    data = request.json
+    if 'name' not in data or 'studentCount' not in data:
+        return jsonify({"error": "Name and student count are required"}), 400
+    
+    new_class = Class(
+        name=data['name'],
+        student_count=data['studentCount'],
+        teacher_id=current_user.teacher_id
+    )
+    db.session.add(new_class)
+    db.session.commit()
+    return jsonify({
+        "id": new_class.id,
+        "name": new_class.name,
+        "studentCount": new_class.student_count
+    }), 201
+
+@app.route('/api/classes/<int:id>', methods=['PUT'])
+@login_required
+def update_class(id):
+    data = request.json
+    cls = Class.query.get_or_404(id)
+    if cls.teacher_id != current_user.teacher_id:
+        return jsonify({"error": "Unauthorized"}), 403
+    
+    if 'name' not in data or 'studentCount' not in data:
+        return jsonify({"error": "Name and student count are required"}), 400
+    
+    cls.name = data['name']
+    cls.student_count = data['studentCount']
+    db.session.commit()
+    return jsonify({
+        "id": cls.id,
+        "name": cls.name,
+        "studentCount": cls.student_count
+    })
+
+@app.route('/api/classes/<int:id>', methods=['DELETE'])
+@login_required
+def delete_class(id):
+    cls = Class.query.get_or_404(id)
+    if cls.teacher_id != current_user.teacher_id:
+        return jsonify({"error": "Unauthorized"}), 403
+    db.session.delete(cls)
+    db.session.commit()
+    return jsonify({"message": "Class deleted successfully"}), 200
+
+@app.route('/live-attendance/<department>')
+@login_required
+def live_attendance(department):
+    return render_template('live_attendance.html', department=department)
 
 if __name__ == '__main__':
     with app.app_context():

@@ -40,6 +40,49 @@
         </div>
     </nav>
 
+    <div class="dashboard-content">
+        <div class="dashboard-grid">
+            <!-- Left Hero Section - Class Management -->
+            <div class="hero-left">
+                <div class="class-management">
+                    <h1>Department Management</h1>
+                    <div class="classes-container">
+                        <table id="classes-table">
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Classes will be populated here -->
+                            </tbody>
+                        </table>
+                        <button class="add-class-btn" onclick="openModal()">Add New Department</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Hero Section - For Future Features -->
+            <div class="hero-right">
+                <div class="placeholder-text">
+                    <p>Click on a department to view its statistics</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="class-modal" class="modal">
+        <div class="modal-content">
+            <input type="text" id="class-name" placeholder="Enter department name">
+            <input type="number" id="student-count" placeholder="Enter number of students" min="1">
+            <div class="modal-buttons">
+                <button class="save-btn" onclick="saveClass()">Save</button>
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ url_for('static', filename='script_dashboard.js') }}"></script>
 </body>
 </html>
