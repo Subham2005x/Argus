@@ -11,9 +11,8 @@ Traditional attendance systems are time-consuming and error-prone. This project 
 
 ## Technologies and Tools
 - **Programming Language:** Python (due to its simplicity and extensive library support).
-- **Tools:** Visual Studio Code, Git/GitHub, Camera.
+- **Tools:** Visual Studio Code, Git/GitHub, ESP-32 Cam .
 - **Libraries:**
-  - **Tkinter**: For building the graphical user interface (GUI).
   - **OpenCV**: For facial detection and recognition.
   - **Pillow**: For image processing and handling.
   - **CSV**: For storing attendance records.
