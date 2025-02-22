@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Attendance - {{ department }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo_01.png') }}" alt="Argus Logo">
+            <span>Argus</span>
+        </div>
+        <h2>{{ department }} - Live Attendance</h2>
+        <a href="{{ url_for('dashboard') }}" class="glass-btn">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </nav>
+
+    <div class="container glass-container">
+        <div class="dashboard">
+            <!-- Registration Section -->
+            <div class="card glass-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-user-plus"></i> Student Registration</h2>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="studentName" class="glass-input" placeholder="Enter student name">
+                </div>
+                <div class="form-group">
+                    <button onclick="startRegistration()" class="glass-btn primary">
+                        <i class="fas fa-camera"></i> Open Camera
+                    </button>
+                </div>
+                <div class="video-container glass-video">
+                    <video id="registrationVideo" autoplay></video>
+                </div>
+                <button onclick="captureRegistration()" class="glass-btn success" hidden>
+                    <i class="fas fa-check"></i> Capture & Register
+                </button>
+                <div id="registrationAlert"></div>
+            </div>
+
+            <!-- Attendance Section -->
+            <div class="card glass-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-user-check"></i> Live Attendance</h2>
+                </div>
+                <div class="attendance-controls">
+                    <button onclick="startClass()" class="glass-btn primary">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button onclick="endClass()" class="glass-btn danger">
+                        <i class="fas fa-stop"></i> End
+                    </button>
+                </div>
+                <div class="video-container glass-video">
+                    <video id="attendanceVideo" autoplay></video>
+                </div>
+                <div id="attendanceAlert"></div>
+            </div>
+        </div>
+
+        <!-- Attendance Records -->
+        <div class="card glass-card">
+            <div class="card-header">
+                <h2><i class="fas fa-clipboard-list"></i> Attendance Records</h2>
+            </div>
+            <div class="date-controls">
+                <input type="text" id="attendanceDate" class="glass-input" placeholder="Select Date" readonly>
+                <button onclick="downloadAttendancePDF()" class="glass-btn">
+                    <i class="fas fa-file-pdf"></i> Download Report
+                </button>
+            </div>
+            <div id="attendanceRecords" class="records-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        const currentDepartment = "{{ department }}";
+        const classId = "{{ class_id }}";
+    </script>
+    <script src="{{ url_for('static', filename='script_attendance.js') }}"></script>
+</body>
+<style>
+
+    .glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.glass-video {
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 15px 0;
+    height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.glass-btn.primary {
+    background: rgba(127, 90, 240, 0.2);
+}
+
+.glass-btn.danger {
+    background: rgba(244, 67, 54, 0.2);
+}
+
+.glass-btn.success {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.glass-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.2);
+}
+</style>
+</html>

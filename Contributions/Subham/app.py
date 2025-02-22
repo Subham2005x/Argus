@@ -1,7 +1,15 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+import sys
+import os
+from datetime import datetime
+
+# Add the parent directory to Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from Rajrup.app import rajrup
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -10,6 +18,12 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+
+# Register the blueprint with correct paths
+app.register_blueprint(rajrup, 
+                      url_prefix='/rajrup',
+                      template_folder='../Rajrup/templates',
+                      static_folder='../Rajrup/static')
 
 class Teacher(UserMixin, db.Model):
     teacher_id = db.Column(db.String(10), primary_key=True, nullable=False)
@@ -104,6 +118,22 @@ class Class(db.Model):
     student_count = db.Column(db.Integer, nullable=False)
     teacher_id = db.Column(db.String(10), db.ForeignKey('teacher.teacher_id'), nullable=False)
 
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    class_id = db.Column(db.Integer, db.ForeignKey('class.id'), nullable=False)
+    encoding = db.Column(db.PickleType, nullable=True)  # Store face encoding
+    image_path = db.Column(db.String(200), nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+class Attendance(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    student_id = db.Column(db.Integer, db.ForeignKey('student.id'), nullable=False)
+    class_id = db.Column(db.Integer, db.ForeignKey('class.id'), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    time = db.Column(db.Time, nullable=False)
+    status = db.Column(db.Boolean, default=True)  # True for present
+
 @app.route('/api/classes', methods=['GET'])
 @login_required
 def get_classes():
@@ -168,7 +198,13 @@ def delete_class(id):
 @app.route('/live-attendance/<department>')
 @login_required
 def live_attendance(department):
-    return render_template('live_attendance.html', department=department)
+    try:
+        # Use url_for to generate the correct URL for attendance.html
+        return redirect(url_for('rajrup.attendance', department=department))
+    except Exception as e:
+        print(f"Redirection error: {str(e)}")
+        flash('Error accessing attendance system', 'error')
+        return redirect(url_for('dashboard'))
 
 if __name__ == '__main__':
     with app.app_context():
