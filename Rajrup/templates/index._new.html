@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Login Modal -->
+    <script src="script.js"></script>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Teacher Login</h2>
+            <div class="form-group">
+                <input type="email" id="loginEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Password">
+            </div>
+            <button onclick="handleLogin()" class="btn btn-primary">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h2>Teacher Registration</h2>
+            <div class="form-group">
+                <input type="text" id="registerName" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+                <input type="email" id="registerEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="password" id="registerPassword" placeholder="Password">
+            </div>
+            <button onclick="handleRegistration()" class="btn btn-primary">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+        </div>
+    </div>
+
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Just a second...</p>
+    </div>
+
+    <!-- Main App Content (hidden until logged in) -->
+    <div id="appContent" style="display: none;">
+        <nav class="navbar">
+            <div class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <h1>Smart Attendance System</h1>
+            <div class="nav-right">
+                <span id="currentClass" class="class-display">Selected Class: None</span>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="theme-toggle-switch">
+                    <label for="theme-toggle-switch" class="theme-toggle-label">
+                        <span class="theme-toggle-icon">🌞</span>
+                        <span class="theme-toggle-icon">🌚</span>
+                    </label>
+                </div>
+                <button onclick="handleLogout()" class="btn btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Your Classes</h3>
+                <button onclick="showAddClassModal()" class="btn btn-add-class">
+                    <i class="fas fa-plus"></i> Add Class
+                </button>
+            </div>
+            <div id="classList" class="class-list">
+                <!-- Classes will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Add Class Modal -->
+        <div id="addClassModal" class="modal">
+            <div class="modal-content">
+                <h2>Add New Class</h2>
+                <div class="form-group">
+                    <input type="text" id="className" placeholder="Class Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="classSubject" placeholder="Subject">
+                </div>
+                <button onclick="createNewClass()" class="btn btn-primary">Create Class</button>
+            </div>
+        </div>
+
+        <!-- Rest of your existing content -->
+        <div class="container">
+            <!-- ... (keep your existing dashboard content) ... -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js" ></script>
+</body>
+</html>
